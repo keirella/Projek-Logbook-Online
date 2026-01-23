@@ -1,0 +1,83 @@
+body {
+    background-color: #fce4ec; 
+    background-image: url('image/lucu.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.card-flag {
+    background-color: white;
+    padding: 2.5em;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out forwards;
+    transition: all 0.3s ease-in-out;
+    margin: 20px;
+}
+
+.card-flag:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px #ffd6d9;
+}
+
+h1 { color: #333; margin-bottom: 20px; }
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ffd6d9;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+button, .btn {
+    background-color: #ffd6d9 !important;
+    color: black !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out !important;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+button:hover, .btn:hover {
+    background-color: #fff4f8 !important;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.status-btn {
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bg-red { background-color: #ff4d4d; }
+.bg-green { background-color: #2ecc71; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+th, td { border: 1px solid #ffd6d9; padding: 10px; text-align: left; }
+th { background-color: #fff4f8; }
