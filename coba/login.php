@@ -1,4 +1,8 @@
-<?php include 'config.php'; ?>
+<?php 
+    include 'config.php'; 
+     
+    if(isset($_SESSION['user_id'])) header("Location: index.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,7 @@
     <div class="card-flag">
         <h1>Login Logbook</h1>
         <form method="POST">
-            <input type="text" name="nim" placeholder="Masukkan NIS/NIM/NIP" required>
+            <input type="text" name="nim" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="login">Masuk</button>
         </form>
@@ -29,6 +33,7 @@
                 $_SESSION['nama'] = decrypt_data($row['nama']);
                 $_SESSION['nim'] = decrypt_data($row['nim_nip']);
                 $_SESSION['asal'] = $row['asal'];
+                $_SESSION['role'] = $row['role'];
                 header("Location: index.php");
             } else { echo "<script>alert('Password Salah!');</script>"; }
         } else { echo "<script>alert('Akun tidak ditemukan!');</script>"; }

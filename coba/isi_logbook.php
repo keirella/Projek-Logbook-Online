@@ -1,4 +1,11 @@
-<?php include 'config.php'; if(!isset($_SESSION['user_id'])) header("Location: login.php"); ?>
+<?php
+    include 'config.php';
+    if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'pemagang') {
+        header("Location: login.php");
+        exit; 
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,15 +28,31 @@
 
     <?php
     if(isset($_POST['submit_log'])){
-        $uid = $_SESSION['user_id'];
-        $pm = $_POST['p_magang'];
-        $pr = $_POST['p_ruangan'];
-        $tgl = $_POST['tanggal'];
-        $rng = $_POST['ruangan'];
-        $kgt = $_POST['kegiatan'];
+        $user_id = $_SESSION['user_id'];
+        $nama_pendamping_magang = $_POST['p_magang'];
+        $nama_pendamping_ruangan = $_POST['p_ruangan'];
+        $hari_tanggal = $_POST['tanggal'];
+        $tempat_ruangan = $_POST['ruangan'];
+        $uraian_kegiatan = $_POST['kegiatan'];
 
-        mysqli_query($conn, "INSERT INTO logbooks (user_id, hari_tanggal, nama_pendamping_magang, nama_pendamping_ruangan, tempat_ruangan, uraian_kegiatan) 
-                             VALUES ('$uid', '$tgl', '$pm', '$pr', '$rng', '$kgt')");
+        mysqli_query($conn, 
+        "INSERT INTO logbooks (
+        user_id, 
+        hari_tanggal, 
+        nama_pendamping_magang, 
+        nama_pendamping_ruangan, 
+        tempat_ruangan, 
+        uraian_kegiatan
+        ) 
+
+        VALUES (
+        '$user_id', 
+        '$hari_tanggal', 
+        '$nama_pendamping_magang', 
+        '$nama_pendamping_ruangan', 
+        '$tempat_ruangan', 
+        '$uraian_kegiatan'
+        )");
         echo "<script>alert('Logbook Berhasil Disimpan!'); window.location='index.php';</script>";
     }
     ?>

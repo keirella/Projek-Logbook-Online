@@ -1,4 +1,11 @@
-<?php include 'config.php'; if(!isset($_SESSION['user_id'])) header("Location: login.php"); ?>
+<?php 
+    include 'config.php'; 
+    
+    if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'pemagang') {
+        header("Location: login.php"); 
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +27,14 @@
                             <th>Ruangan</th>
                             <th>Uraian</th>
                             <th>Aksi</th>
-                            <th>Export Logbook</th>
+                            <th>Status</th>
                         </tr>
                         <?php
                         $uid = $_SESSION['user_id'];
                         $res = mysqli_query($conn, "SELECT * FROM logbooks WHERE user_id='$uid' ORDER BY hari_tanggal DESC");
                         while($row = mysqli_fetch_assoc($res)){
-                            $s_magang = $row['status_magang'] == 1 ? '<button class="status-btn bg-green">Approved</button>' : '<button class="status-btn bg-red">Belum Approved</button>';
-                            $s_ruang = $row['status_ruangan'] == 1 ? '<button class="status-btn bg-green">Approved</button>' : '<button class="status-btn bg-red">Belum Approved</button>';
+                            $s_magang = $row['approved_pendamping'] == 1 ? '<button class="status-btn bg-green">Approved</button>' : '<button class="status-btn bg-red">Belum Approved</button>';
+                            $s_ruang = $row['approved_petugas'] == 1 ? '<button class="status-btn bg-green">Approved</button>' : '<button class="status-btn bg-red">Belum Approved</button>';
                             
                             echo "<tr>
                                 <td>{$row['hari_tanggal']}</td>
