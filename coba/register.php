@@ -28,7 +28,12 @@
         $asal = $_POST['asal'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO users (nama, nim_nip, nim_hash, asal, password) VALUES ('$nama', '$nim', '$nim_hash', '$asal', '$password')";
+        $cek = mysqli_query($conn, "SELECT * FROM users WHERE nim_hash='$nim_hash'");
+        if(mysqli_num_rows($cek) > 0){
+            echo "<script>alert('Akun sudah terdaftar!'); window.location='register.php';</script>";
+        }
+
+        $query = "INSERT INTO users (nama, nim_nip, nim_hash, asal, password, role) VALUES ('$nama', '$nim', '$nim_hash', '$asal', '$password', 'pemagang')";
         if(mysqli_query($conn, $query)){
             echo "<script>alert('Pendaftaran Berhasil!'); window.location='login.php';</script>";
         }
