@@ -1,14 +1,17 @@
 body {
-    background-color: #fce4ec; 
+    background-color: #FEF3E2; 
     background-image: url('image/lucu.jpg');
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.centered-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
 }
 
 .card-flag {
@@ -26,7 +29,13 @@ body {
 
 .card-flag:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px #ffd6d9;
+    box-shadow: 0 12px 40px rgba(250, 129, 47, 0.3);
+}
+
+.card-flag form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 { color: #333; margin-bottom: 20px; }
@@ -35,14 +44,20 @@ input, textarea, select {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ffd6d9;
+    border: 1px solid #FA812F;
     border-radius: 10px;
     box-sizing: border-box;
 }
 
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #F3C623;
+    box-shadow: 0 0 5px rgba(243, 198, 35, 0.5);
+}
+
 button, .btn {
-    background-color: #ffd6d9 !important;
-    color: black !important;
+    background-color: #FA812F !important;
+    color: white !important;
     border-radius: 10px !important;
     font-size: 16px !important;
     padding: 12px;
@@ -53,10 +68,11 @@ button, .btn {
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 button:hover, .btn:hover {
-    background-color: #fff4f8 !important;
+    background-color: #FFB22C !important;
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
@@ -79,5 +95,99 @@ button:hover, .btn:hover {
 }
 
 table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
-th, td { border: 1px solid #ffd6d9; padding: 10px; text-align: left; }
-th { background-color: #fff4f8; }
+th, td { border: 1px solid #FFB22C; padding: 10px; text-align: left; }
+th { background-color: #FEF3E2; color: #333; }
+
+.dashboard-wrapper {
+    display: flex; 
+    min-height: 100vh;
+    width: 100%;
+    background: #FEF3E2;
+}
+
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky; 
+    top: 0;
+}
+
+.sidebar-profile {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #F3C623;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    background: #F3C623;
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.navbar {
+    height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 2px solid #FEF3E2;
+}
+
+.logo-yanpus {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.content-body {
+    padding: 30px;
+}
+
+.grid-menu {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-dash {
+    padding: 12px 25px !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    width: auto !important;
+}
+
+.logout-link {
+    background: #ff4d4d !important;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.logout-link:hover {
+    background: #cc0000 !important;
+}
