@@ -9,7 +9,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="centered-page">
     <div class="card-flag">
         <h1>Login Logbook</h1>
         <form method="POST">
@@ -17,7 +17,11 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="login">Masuk</button>
         </form>
-        <a href="register.php" class="btn">Belum punya akun? Daftar</a>
+        
+        <p style="margin-top: 20px; font-size: 14px; color: #666;">
+            Belum punya akun? 
+            <a href="register.php" style="color: #FAB12F; text-decoration: none; font-weight: bold;">Daftar di sini</a>
+        </p>
     </div>
 
     <?php
