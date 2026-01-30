@@ -7,7 +7,7 @@
     <title>Daftar Akun</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="centered-page">
     <div class="card-flag">
         <h1>Buat Akun Magang</h1>
         <form method="POST">
@@ -17,23 +17,22 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="register">Daftar Sekarang</button>
         </form>
-        <a href="login.php" class="btn">Sudah punya akun? Login</a>
+        
+        <p style="margin-top: 20px; font-size: 14px; color: #666;">
+            Sudah punya akun? 
+            <a href="login.php" style="color: #FAB12F; text-decoration: none; font-weight: bold;">Login di sini</a>
+        </p>
     </div>
 
     <?php
     if(isset($_POST['register'])){
         $nama = encrypt_data($_POST['nama']);
         $nim = encrypt_data($_POST['nim']);
-        $nim_hash = hash('sha256', $_POST['nim']); // buat pencarian login
+        $nim_hash = hash('sha256', $_POST['nim']); 
         $asal = $_POST['asal'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $cek = mysqli_query($conn, "SELECT * FROM users WHERE nim_hash='$nim_hash'");
-        if(mysqli_num_rows($cek) > 0){
-            echo "<script>alert('Akun sudah terdaftar!'); window.location='register.php';</script>";
-        }
-
-        $query = "INSERT INTO users (nama, nim_nip, nim_hash, asal, password, role) VALUES ('$nama', '$nim', '$nim_hash', '$asal', '$password', 'pemagang')";
+        $query = "INSERT INTO users (nama, nim_nip, nim_hash, asal, password) VALUES ('$nama', '$nim', '$nim_hash', '$asal', '$password')";
         if(mysqli_query($conn, $query)){
             echo "<script>alert('Pendaftaran Berhasil!'); window.location='login.php';</script>";
         }
