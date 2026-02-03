@@ -20,7 +20,7 @@
                 <p style="font-size: 12px; color: #666;"><?php echo $_SESSION['asal']; ?></p>
             </div>
             <div style="margin-top: auto; text-align: center;">
-                <img src="image/logo_yanpus.png" alt="Logo Yanpus" class="logo-yanpus">
+                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
                 <p style="font-size: 10px;">Balai Yanpus</p>
             </div>
         </aside>

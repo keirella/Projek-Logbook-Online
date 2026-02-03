@@ -166,13 +166,34 @@ th { background-color: #FEF3E2; color: #333; }
 }
 
 .grid-menu {
+    display: grid !important;
+    grid-template-columns: 2fr 2fr !important;
+    gap: 20px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+}
+
+.btn-dash {
+    height: 100px !important; 
+    padding: 0 !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 12px !important;
+}
+
+.grid-menu-dash {
     display: flex;
     gap: 15px;
     margin-top: 20px;
     flex-wrap: wrap;
 }
 
-.btn-dash {
+.btn-dash-dash {
     padding: 12px 25px !important;
     font-size: 14px !important;
     font-weight: bold;

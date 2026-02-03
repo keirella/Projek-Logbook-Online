@@ -11,6 +11,9 @@
 </head>
 <body class="centered-page">
     <div class="card-flag">
+        <div style="margin-top: auto; text-align: center;">
+            <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
+        </div>
         <h1>Login Logbook</h1>
         <form method="POST">
             <input type="text" name="nim" placeholder="Username" required>

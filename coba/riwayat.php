@@ -21,7 +21,7 @@
                 <p style="font-size: 12px; color: #666;"><?php echo $_SESSION['asal']; ?></p>
             </div>
             <div style="margin-top: auto; text-align: center;">
-                <img src="image/logo_yanpus.png" alt="Logo Yanpus" class="logo-yanpus">
+                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
                 <p style="font-size: 10px;">Balai Yanpus</p>
             </div>
         </aside>
@@ -30,7 +30,7 @@
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Riwayat Kegiatan</h2>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <a href="index.php" class="btn btn-dash" style="margin: 0; padding: 8px 15px !important; width: auto;">Kembali</a>
+                    <a href="index.php" class="btn btn-dash-dash" style="margin: 0; padding: 8px 15px !important; width: auto;">Kembali</a>
                 </div>
             </nav>
 

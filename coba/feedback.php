@@ -58,7 +58,7 @@
                 <p style="font-size: 12px; color: #666;">Pemberi Feedback (<?php echo ucfirst($_SESSION['role']); ?>)</p>
             </div>
             <div style="margin-top: auto; text-align: center;">
-                <img src="image/logo_yanpus.png" alt="Logo Yanpus" class="logo-yanpus">
+                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
             </div>
         </aside>
 
