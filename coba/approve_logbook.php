@@ -30,7 +30,7 @@
         <main class="main-content">
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Panel Persetujuan</h2>
-                <a href="logout.php" class="logout-link">Logout</a>
+                <a href="logout.php" onclick="return confirm('Apakah Anda yakin ingin logout?');" class="logout-link">Logout</a>
             </nav>
 
             <div class="content-body">

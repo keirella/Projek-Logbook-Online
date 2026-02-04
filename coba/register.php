@@ -9,6 +9,7 @@
 </head>
 <body class="centered-page">
     <div class="card-flag">
+        <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
         <h1>Buat Akun Magang</h1>
         <form method="POST">
             <input type="text" name="nama" placeholder="Nama Lengkap" required>

@@ -28,7 +28,7 @@ $col_to_update = ($_SESSION['role'] == 'pendamping') ? 'approved_pendamping' : '
         <main class="main-content">
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Detail Review Logbook</h2>
-                <a href="approve_logbook.php" class="btn btn-dash" style="width: auto; padding: 8px 15px;">Kembali</a>
+                <a href="approve_logbook.php" class="btn btn-dash-dash" style="width: auto; padding: 8px 15px;">Kembali</a>
             </nav>
 
             <div class="content-body">
