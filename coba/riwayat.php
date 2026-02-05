@@ -16,13 +16,21 @@
         <aside class="sidebar">
             <div class="sidebar-profile">
                 <div class="profile-img">👤</div>
-                <h3><?php echo $_SESSION['nama']; ?></h3>
-                <p style="font-size: 12px; color: #666;"><?php echo $_SESSION['nim']; ?></p>
-                <p style="font-size: 12px; color: #666;"><?php echo $_SESSION['asal']; ?></p>
+                <h3 style="margin-bottom: 5px;"><?php echo $_SESSION['nama']; ?></h3>
+                <p style="font-size: 12px; color: #666; margin: 2px 0;"><?php echo $_SESSION['nim']; ?></p>
+                <p style="font-size: 12px; color: #666; margin: 2px 0;"><?php echo $_SESSION['asal']; ?></p>
             </div>
-            <div style="margin-top: auto; text-align: center;">
-                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
-                <p style="font-size: 10px;">Balai Yanpus</p>
+            
+            <nav style="margin-top: 30px; padding: 0 20px;">
+                <p style="font-size: 10px; color: #999; text-transform: uppercase; font-weight: bold;">Menu Utama</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="#" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="presensi.php" style="text-decoration: none; color: #333; font-size: 14px;">📅 Presensi</a></li>
+                </ul>
+            </nav>
+
+            <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
+                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus" style="width: 150px; ">
             </div>
         </aside>
 

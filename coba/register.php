@@ -15,7 +15,7 @@
 
         <form method="POST">
             <input type="text" name="nama" placeholder="Nama Lengkap" required>
-            <input type="text" name="nim" placeholder="NIS / NIM / NIP" required>
+            <input type="text" name="nim" placeholder="NIM / NIS / NIP" required>
             <input type="text" name="asal" placeholder="Asal Instansi (Sekolah/Univ)" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="register">Daftar Sekarang</button>

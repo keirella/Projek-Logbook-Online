@@ -16,7 +16,7 @@
         </div>
         <h1>Login Logbook</h1>
         <form method="POST">
-            <input type="text" name="nim" placeholder="Username (NIM/NIP)" required>
+            <input type="text" name="nim" placeholder="Username (NIM / NIS / NIP)" required>
             <input type="password" name="password" placeholder="Password" required>
             
             <div style="width: 100%; text-align: right; margin-bottom: 10px;">
