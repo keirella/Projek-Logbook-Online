@@ -30,7 +30,7 @@
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Riwayat Kegiatan</h2>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <a href="index.php" class="btn btn-dash-dash" style="margin: 0; padding: 8px 15px !important; width: auto;">Kembali</a>
+                    <a href="index.php" class="btn btn-back" style="margin: 0; padding: 8px 15px !important; width: auto;">Kembali</a>
                 </div>
             </nav>
 

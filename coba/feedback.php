@@ -65,7 +65,7 @@
         <main class="main-content">
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Feedback & Approval</h2>
-                <a href="review_logbook.php?user_id=<?php echo $data['user_id']; ?>" class="btn btn-dash-dash" style="width:auto; padding: 8px 15px;">Kembali</a>
+                <a href="review_logbook.php?user_id=<?php echo $data['user_id']; ?>" class="btn btn-back" style="width:auto; padding: 8px 15px;">Kembali</a>
             </nav>
 
             <div class="content-body">

@@ -35,10 +35,10 @@
 
             <div class="content-body">
                 <div class="grid-menu-dash" style="margin-bottom: 30px;">
-                    <a href="?status=belum" class="btn btn-dash-dash <?php echo $status_filter == 'belum' ? '' : 'bg-red'; ?>" style="margin:0;">
+                    <a href="?status=belum" class="btn btn-back <?php echo $status_filter == 'belum' ? '' : 'bg-red'; ?>" style="margin:0;">
                         <?php echo $status_filter == 'belum' ? '● ' : ''; ?>BELUM APPROVED
                     </a>
-                    <a href="?status=sudah" class="btn btn-dash-dash <?php echo $status_filter == 'sudah' ? '' : 'bg-green'; ?>" style="margin:0;">
+                    <a href="?status=sudah" class="btn btn-back <?php echo $status_filter == 'sudah' ? '' : 'bg-green'; ?>" style="margin:0;">
                         <?php echo $status_filter == 'sudah' ? '● ' : ''; ?>SUDAH APPROVED
                     </a>
                 </div>
