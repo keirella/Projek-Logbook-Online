@@ -77,7 +77,7 @@
             <nav style="margin-top: 30px; padding: 0 20px;">
                 <p style="font-size: 10px; color: #999; text-transform: uppercase; font-weight: bold;">Menu Utama</p>
                 <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="#" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="home_pemagang.php" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
                     <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="presensi.php" style="text-decoration: none; color: #333; font-size: 14px;">📅 Presensi</a></li>
                 </ul>
             </nav>
@@ -90,7 +90,7 @@
         <main class="main-content">
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Dashboard Pemagang</h2>
-                <a href="logout.php" class="logout-link">Logout</a>
+                <a href="logout.php" onclick="return confirm('Apakah Anda yakin ingin logout?')" class="logout-link">Logout</a>
             </nav>
 
             <div class="content-body">

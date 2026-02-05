@@ -24,7 +24,7 @@
             <nav style="margin-top: 30px; padding: 0 20px;">
                 <p style="font-size: 10px; color: #999; text-transform: uppercase; font-weight: bold;">Menu Utama</p>
                 <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="#" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="home_pemagang.php" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
                     <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="presensi.php" style="text-decoration: none; color: #333; font-size: 14px;">📅 Presensi</a></li>
                 </ul>
             </nav>
@@ -65,18 +65,18 @@
     </div>
 
     <?php
-    if(isset($_POST['submit_log'])){
-        $user_id = $_SESSION['user_id'];
-        $nama_pendamping_magang = $_POST['p_magang'];
-        $nama_pendamping_ruangan = $_POST['p_ruangan'];
-        $hari_tanggal = $_POST['tanggal'];
-        $tempat_ruangan = $_POST['ruangan'];
-        $uraian_kegiatan = $_POST['kegiatan'];
+        if(isset($_POST['submit_log'])){
+            $user_id = $_SESSION['user_id'];
+            $nama_pendamping_magang = $_POST['p_magang'];
+            $nama_pendamping_ruangan = $_POST['p_ruangan'];
+            $hari_tanggal = $_POST['tanggal'];
+            $tempat_ruangan = $_POST['ruangan'];
+            $uraian_kegiatan = $_POST['kegiatan'];
 
-        mysqli_query($conn, "INSERT INTO logbooks (user_id, hari_tanggal, nama_pendamping_magang, nama_pendamping_ruangan, tempat_ruangan, uraian_kegiatan) 
-        VALUES ('$user_id', '$hari_tanggal', '$nama_pendamping_magang', '$nama_pendamping_ruangan', '$tempat_ruangan', '$uraian_kegiatan')");
-        echo "<script>alert('Logbook Berhasil Disimpan!'); window.location='index.php';</script>";
-    }
+            mysqli_query($conn, "INSERT INTO logbooks (user_id, hari_tanggal, nama_pendamping_magang, nama_pendamping_ruangan, tempat_ruangan, uraian_kegiatan) 
+            VALUES ('$user_id', '$hari_tanggal', '$nama_pendamping_magang', '$nama_pendamping_ruangan', '$tempat_ruangan', '$uraian_kegiatan')");
+            echo "<script>alert('Logbook Berhasil Disimpan!'); window.location='index.php';</script>";
+        }
     ?>
 </body>
 </html>

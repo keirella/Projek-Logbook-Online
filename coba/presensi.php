@@ -83,7 +83,7 @@
             <nav style="margin-top: 30px; padding: 0 20px;">
                 <p style="font-size: 10px; color: #999; text-transform: uppercase; font-weight: bold;">Menu Utama</p>
                 <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="#" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="home_pemagang.php" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
                     <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="presensi.php" style="text-decoration: none; color: #333; font-size: 14px;">📅 Presensi</a></li>
                 </ul>
             </nav>
@@ -96,13 +96,13 @@
         <main class="main-content">
             <nav class="navbar">
                 <h2 style="color: #333; margin: 0;">Presensi Harian</h2>
-                <a href="logout.php" class="logout-link">Logout</a>
+                <a href="logout.php" onclick="return confirm('Apakah Anda yakin ingin logout?')" class="logout-link">Logout</a>
             </nav>
 
             <div class="presensi-container">
                 <div class="card-flag">
                     <h1>Form Presensi</h1>
-                    <form action="proses_presensi.php" method="POST">
+                    <form method="POST">
                         
                         <div class="form-group">
                             <label>Nama Lengkap</label>
@@ -164,5 +164,24 @@
             </div>
         </main>
     </div>
+
+    <?php
+        if(isset($_POST['submit'])){
+            $user_id = $_SESSION['user_id'];
+            $nama = $_POST['nama'];
+            $nim = $_POST['nim'];
+            $asal = $_POST['asal'];
+            $tanggal = $_POST['tanggal'];
+            $status = $_POST['status'];
+            $ruangan = $_POST['ruangan'];
+            $jam_masuk_pagi = $_POST['jam_masuk_pagi'];
+            $jam_masuk_siang = $_POST['jam_masuk_siang'];
+            $jam_pulang = $_POST['jam_pulang'];
+
+            mysqli_query($conn, "INSERT INTO kehadiran (user_id, nama, nim, asal, tanggal, status, ruangan, jam_masuk_pagi, jam_masuk_siang, jam_pulang) 
+            VALUES ('$user_id', '$nama', '$nim', '$asal', '$tanggal', '$status', '$ruangan', '$jam_masuk_pagi', '$jam_masuk_siang', '$jam_pulang')");
+            echo "<script>alert('Presensi Berhasil Disimpan!'); window.location='presensi.php';</script>";
+        }
+    ?>
 </body>
 </html>
