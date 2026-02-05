@@ -11,6 +11,8 @@
     <div class="card-flag">
         <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
         <h1>Buat Akun Magang</h1>
+        <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Masukkan Data Diri Anda</p>
+
         <form method="POST">
             <input type="text" name="nama" placeholder="Nama Lengkap" required>
             <input type="text" name="nim" placeholder="NIS / NIM / NIP" required>
