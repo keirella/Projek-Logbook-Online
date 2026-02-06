@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2026 at 04:17 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Feb 06, 2026 at 02:55 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `logbook_magang`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kehadiran`
+--
+
+CREATE TABLE `kehadiran` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `nama` varchar(60) NOT NULL,
+  `nim` varchar(20) NOT NULL,
+  `asal` varchar(60) NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `ruangan` varchar(60) NOT NULL,
+  `jam_masuk_pagi` time NOT NULL,
+  `jam_masuk_siang` time NOT NULL,
+  `jam_pulang` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kehadiran`
+--
+
+INSERT INTO `kehadiran` (`id`, `user_id`, `nama`, `nim`, `asal`, `tanggal`, `status`, `ruangan`, `jam_masuk_pagi`, `jam_masuk_siang`, `jam_pulang`) VALUES
+(1, 2, 'Bambang', '123230111', 'UPN ', '2026-02-05', 'Hadir', 'Ruang IT', '07:32:00', '12:32:00', '15:34:00');
 
 -- --------------------------------------------------------
 
@@ -82,6 +109,13 @@ INSERT INTO `users` (`id`, `nama`, `nim_nip`, `nim_hash`, `asal`, `password`, `r
 --
 
 --
+-- Indexes for table `kehadiran`
+--
+ALTER TABLE `kehadiran`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id` (`user_id`);
+
+--
 -- Indexes for table `logbooks`
 --
 ALTER TABLE `logbooks`
@@ -100,6 +134,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `kehadiran`
+--
+ALTER TABLE `kehadiran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `logbooks`
 --
 ALTER TABLE `logbooks`
@@ -114,6 +154,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `kehadiran`
+--
+ALTER TABLE `kehadiran`
+  ADD CONSTRAINT `fk_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `logbooks`
