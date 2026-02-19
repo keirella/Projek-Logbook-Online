@@ -11,17 +11,29 @@ $col_to_update = ($_SESSION['role'] == 'pendamping') ? 'approved_pendamping' : '
 <head>
     <title>Review Logbook</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_style.css">
 </head>
 <body> <div class="dashboard-wrapper">
         <aside class="sidebar">
             <div class="sidebar-profile">
-                <div class="profile-img">🛡️</div>
-                <h3><?php echo $_SESSION['nama']; ?></h3>
-                <p style="font-size: 12px; color: #666;">Mode Review</p>
+                <div class="profile-img">👤</div>
+                <h3 style="margin:0; font-size:16px;"><?php echo $_SESSION['nama']; ?></h3>
+                <p style="margin:5px 0 0; font-size:11px; color:#999;"><?php echo strtoupper($_SESSION['role']); ?></p>
             </div>
-            <div style="margin-top: auto; text-align: center;">
-                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus">
-                <p style="font-size: 10px;">Balai Yanpus</p>
+            <nav class="nav-menu">
+                <div class="menu-label">Menu Utama</div>
+                <a href="home_pendamping.php" class="nav-item active">
+                    <span class="nav-icon">🏠</span> Dashboard
+                </a>
+                <a href="approve_logbook.php" class="nav-item">
+                    <span class="nav-icon">✅</span> Panel Persetujuan
+                </a>
+                <a href="panel_kehadiran.php" class="nav-item">
+                    <span class="nav-icon">📅</span> Panel Kehadiran
+                </a>
+            </nav>
+            <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
+                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus" style="width: 150px; height: 40px;">
             </div>
         </aside>
 

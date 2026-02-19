@@ -48,6 +48,7 @@
 <head>
     <title>Feedback Logbook</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_style.css">
 </head>
 <body>
     <div class="dashboard-wrapper">

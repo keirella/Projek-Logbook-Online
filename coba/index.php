@@ -11,7 +11,7 @@
         header("Location: home_pemagang.php");
     } 
     else if($_SESSION['role'] === 'pendamping' || $_SESSION['role'] === 'petugas') {
-        header("Location: approve_logbook.php");
+        header("Location: home_pendamping.php");
     } 
     else {
         echo "Role tidak dikenali.";
