@@ -49,6 +49,14 @@
     <title>Feedback Logbook</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard_style.css">
+    <style>
+        .logo-yanpus {
+            width: 80px; 
+            height: auto !important; 
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard-wrapper">

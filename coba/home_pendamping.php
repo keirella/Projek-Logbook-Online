@@ -8,7 +8,6 @@
     $role = $_SESSION['role'];
     $col_status = ($role == 'pendamping') ? 'approved_pendamping' : 'approved_petugas';
 
-    // Statistik
     $stats_query = "SELECT 
         (SELECT COUNT(id) FROM users WHERE role = 'pemagang') as total_aktif,
         (SELECT COUNT(id) FROM logbooks WHERE $col_status = 0) as total_belum,
@@ -16,9 +15,7 @@
     $stats_res = mysqli_query($conn, $stats_query);
     $stats = mysqli_fetch_assoc($stats_res);
 
-    // Filter logic
     $filter_val = isset($_GET['filter']) ? mysqli_real_escape_string($conn, $_GET['filter']) : '';
-    $filter_col = ($role == 'pendamping') ? 'asal' : 'ruangan';
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,6 +23,14 @@
     <title>Dashboard | Balai Yanpus</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard_style.css">
+    <style>
+        .logo-yanpus {
+            width: 80px; 
+            height: auto !important; 
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard-wrapper">
@@ -42,7 +47,7 @@
                 <a href="panel_kehadiran.php" class="nav-item"><span class="nav-icon">📅</span> Panel Kehadiran</a>
             </nav>
             <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
-                <img src="image/Logo.png" style="width: 150px;">
+                <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus" style="width: 150px; ">
             </div>
         </aside>
 
@@ -75,9 +80,10 @@
                             <select name="filter" class="filter-input" onchange="this.form.submit()">
                                 <option value=""><?php echo ($role == 'pendamping') ? 'Semua Instansi' : 'Semua Ruangan'; ?></option>
                                 <?php 
-                                $opt_query = ($role == 'pendamping') ? "SELECT DISTINCT asal as val FROM users WHERE role='pemagang'" : "SELECT DISTINCT ruangan as val FROM users WHERE role='pemagang'";
+                                $opt_query = ($role == 'pendamping') ? "SELECT DISTINCT asal as val FROM users WHERE role='pemagang'" : "SELECT DISTINCT ruangan as val FROM kehadiran";
                                 $opt_res = mysqli_query($conn, $opt_query);
                                 while($opt = mysqli_fetch_assoc($opt_res)) {
+                                    if(!$opt['val']) continue;
                                     $sel = ($filter_val == $opt['val']) ? 'selected' : '';
                                     echo "<option value='{$opt['val']}' $sel>{$opt['val']}</option>";
                                 }
@@ -96,15 +102,30 @@
                         </thead>
                         <tbody>
                             <?php 
-                            $sql = "SELECT * FROM users WHERE role='pemagang'";
-                            if($filter_val != '') $sql .= " AND $filter_col = '$filter_val'";
+                            $sql = "SELECT 
+                                     users.id,
+                                     users.nama,
+                                     users.nim_nip,
+                                     users.asal,
+                                     (SELECT ruangan FROM kehadiran WHERE user_id = users.id ORDER BY tanggal DESC LIMIT 1) as ruangan 
+                                     FROM users 
+                                     WHERE users.role = 'pemagang'";
+                            
+                            if($filter_val != '') {
+                                if($role == 'pendamping') {
+                                    $sql .= " AND users.asal = '$filter_val'";
+                                } else {
+                                    $sql .= " HAVING ruangan = '$filter_val'";
+                                }
+                            } 
+
                             $res = mysqli_query($conn, $sql);
                             while($row = mysqli_fetch_assoc($res)) {
                                 echo "<tr>
                                     <td><strong>".decrypt_data($row['nama'])."</strong></td>
                                     <td>".decrypt_data($row['nim_nip'])."</td>
                                     <td>{$row['asal']}</td>
-                                    <td>{$row['ruangan']}</td>
+                                    <td>".($row['ruangan'] ?? '-')."</td>
                                 </tr>";
                             }
                             ?>

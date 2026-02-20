@@ -16,7 +16,7 @@
         <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Masukkan Username dan Password Baru Anda</p>
         
         <form method="POST">
-            <input type="text" name="nim" placeholder="Masukkan Username (NIM/NIP)" required>
+            <input type="text" name="nim" placeholder="Masukkan Username (NIM / NIS / NIP)" required>
             <input type="password" name="new_password" placeholder="Password Baru" required>
             <input type="password" name="confirm_password" placeholder="Konfirmasi Password Baru" required>
             

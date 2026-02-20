@@ -10,6 +10,15 @@
 <head>
     <title>Riwayat Logbook</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_style.css">
+    <style>
+        .logo-yanpus {
+            width: 80px; 
+            height: auto !important; 
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body> 
     <div class="dashboard-wrapper">
@@ -20,15 +29,12 @@
                 <p style="font-size: 12px; color: #666; margin: 2px 0;"><?php echo $_SESSION['nim']; ?></p>
                 <p style="font-size: 12px; color: #666; margin: 2px 0;"><?php echo $_SESSION['asal']; ?></p>
             </div>
-            
-            <nav style="margin-top: 30px; padding: 0 20px;">
-                <p style="font-size: 10px; color: #999; text-transform: uppercase; font-weight: bold;">Menu Utama</p>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="#" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="presensi.php" style="text-decoration: none; color: #333; font-size: 14px;">📅 Presensi</a></li>
-                </ul>
+            <nav class="nav-menu">
+                <div class="menu-label">Menu Utama</div>
+                <a href="home_pemagang.php" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
+                <a href="riwayat.php" class="nav-item active"><span class="nav-icon">📖</span> Riwayat Kegiatan</a>
+                <a href="riwayat_presensi.php" class="nav-item"><span class="nav-icon">📅</span> Riwayat Presensi</a>
             </nav>
-
             <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
                 <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus" style="width: 150px; ">
             </div>
@@ -69,8 +75,8 @@
                                     $s_magang = $row['approved_pendamping'] == 1 ? '<span class="status-btn bg-green">Approved</span>' : '<span class="status-btn bg-red">Pending</span>';
                                     $s_ruang = $row['approved_petugas'] == 1 ? '<span class="status-btn bg-green">Approved</span>' : '<span class="status-btn bg-red">Pending</span>';
                                     
-                                    $f_pendamping = ($row['approved_pendamping'] == 1 && !empty($row['feedback'])) ? $row['feedback'] : '-';
-                                    $f_petugas = ($row['approved_petugas'] == 1 && !empty($row['feedback'])) ? $row['feedback'] : '-';
+                                    $f_pendamping = ($row['approved_pendamping'] == 1 && !empty($row['feedback_pendamping'])) ? $row['feedback_pendamping'] : '-';
+                                    $f_petugas = ($row['approved_petugas'] == 1 && !empty($row['feedback_petugas'])) ? $row['feedback_petugas'] : '-';
 
                                     echo "<tr>
                                         <td>".date('d M Y', strtotime($row['hari_tanggal']))."</td>

@@ -27,6 +27,14 @@
     <title>Panel Persetujuan | Balai Yanpus</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard_style.css">
+    <style>
+        .logo-yanpus {
+            width: 80px; 
+            height: auto !important; 
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard-wrapper">
@@ -101,7 +109,7 @@
                         <thead>
                             <tr>
                                 <th>NAMA MAHASISWA</th>
-                                <th>NIS / NIM</th>
+                                <th>NIS / NIM / NIP</th>
                                 <th>INSTANSI</th>
                                 <th style="text-align: center;">AKSI</th>
                             </tr>

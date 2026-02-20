@@ -17,6 +17,7 @@
 <head>
     <title>Dashboard Pemagang</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard_style.css">
     <style>
         .stats-container {
             display: grid;
@@ -73,15 +74,12 @@
                 <p style="font-size: 12px; color: #666; margin: 2px 0;"><?php echo $_SESSION['nim']; ?></p>
                 <p style="font-size: 12px; color: #666; margin: 2px 0;"><?php echo $_SESSION['asal']; ?></p>
             </div>
-            
-            <nav style="margin-top: 30px; padding: 0 20px;">
-                <p style="font-size: 10px; color: #999; text-transform: uppercase; font-weight: bold;">Menu Utama</p>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="#" style="text-decoration: none; color: #333; font-size: 14px;">🏠 Beranda</a></li>
-                    <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0;"><a href="presensi.php" style="text-decoration: none; color: #333; font-size: 14px;">📅 Presensi</a></li>
-                </ul>
+            <nav class="nav-menu">
+                <div class="menu-label">Menu Utama</div>
+                <a href="home_pemagang.php" class="nav-item active"><span class="nav-icon">🏠</span> Dashboard</a>
+                <a href="riwayat.php" class="nav-item"><span class="nav-icon">📅</span> Riwayat Kegiatan</a>
+                <a href="riwayat_presensi.php" class="nav-item"><span class="nav-icon">🕒</span> Riwayat Presensi</a>
             </nav>
-
             <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
                 <img src="image/Logo.png" alt="Logo Yanpus" class="logo-yanpus" style="width: 150px; ">
             </div>
@@ -115,7 +113,7 @@
 
                 <div class="grid-menu" style="margin-bottom: 30px;">
                     <a href="isi_logbook.php" class="btn btn-dash" style="justify-content: center;">📝 Isi Logbook Baru</a>
-                    <a href="riwayat.php" class="btn btn-dash" style="justify-content: center; background: #fff; color: #ff8c00; border: 2px solid #ff8c00;">🕒 Lihat Riwayat</a>
+                    <a href="presensi.php" class="btn btn-dash" style="justify-content: center; background: #fff; color: #ff8c00; border: 2px solid #ff8c00;">🕒 Isi Presensi</a>
                 </div>
 
                 <div class="recent-activity">
